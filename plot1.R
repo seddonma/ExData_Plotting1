@@ -18,7 +18,7 @@ dataset$Date <- dmy(dataset$Date)
 dataset <- subset(dataset, dataset$Date == ymd("2007-02-01") | dataset$Date == ymd("2007-02-02"))
 
 ## Converts data to numeric 
-num_GAP <- as.numeric(as.vector(dataset1$Global_active_power))
-hist(num_GAP, col = "red", main = "Global Active Power")
+num_GAP <- as.numeric(as.vector(dataset$Global_active_power))
+hist(num_GAP, col = "red", main = "Global Active Power", xlab = "Global Active Power (kilowatts)")
 axis(side = 2, at = 200)
-png("plot1.png", width=504, height=504)
+dev.copy(png, file = "plot1.png")
